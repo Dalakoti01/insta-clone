@@ -26,7 +26,6 @@ const LeftSidebar = ({setOpen}) => {
   const [isPopoverOpen,setIsPopoverOpen] = useState(false)
   const {unreadMessage } = useSelector(store => store.chat)
   const {user} = useSelector(store => store.auth)
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const handlePopoverOpen = (open) => {
@@ -59,7 +58,7 @@ const LeftSidebar = ({setOpen}) => {
 
   const logOutHandler = async () => {    
     try {      
-      const res = await axios.get(`${backendUri}/api/v1/user/logout`, {
+      const res = await axios.get(`https://insta-clone-sp4v.onrender.com/api/v1/user/logout`, {
         withCredentials: true,
       });
       

@@ -12,7 +12,6 @@ import { Loader2 } from "lucide-react";
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
   const { user } = useSelector((store) => store.auth);
   useEffect(() => {
     if (user) {
@@ -35,7 +34,7 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(`${backendUri}/api/v1/user/login`, input, {
+      const res = await axios.post(`https://insta-clone-sp4v.onrender.com/api/v1/user/login`, input, {
         withCredentials: true,
         headers: { "Content-Type": "application/json" },
       });

@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const useGetAllUsers = () => {
-    const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const disptach = useDispatch();
   const { searchUser } = useSelector((store) => store.auth);
@@ -12,7 +11,7 @@ const useGetAllUsers = () => {
     const fetchAllUsers = async () => {
       try {
         const res = await axios.get(
-          `${backendUri}/api/v1/user/getUsers?keyword=${searchUser}`,
+          `https://insta-clone-sp4v.onrender.com/api/v1/user/getUsers?keyword=${searchUser}`,
           { withCredentials: true }
         );
         if(res.data.success){

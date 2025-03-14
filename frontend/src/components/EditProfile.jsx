@@ -18,7 +18,6 @@ import { Loader2 } from "lucide-react";
 
 const EditProfile = () => {
   const [loading,setLoading] = useState(false)
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
     const navigate = useNavigate()
   const dispatch = useDispatch();
@@ -51,7 +50,7 @@ const EditProfile = () => {
         formData.append("profilePhoto", input.profilePicture);
       }
       const res = await axios.post(
-        `${backendUri}/api/v1/user/updateProfile`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/user/updateProfile`,
         formData,
         {
           headers: {

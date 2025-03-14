@@ -12,7 +12,6 @@ import { setMessages } from "@/store/chatSlice";
 import { clearMessageNotification } from "@/store/rtnSlice";
 
 const Message = () => {
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const [textMessage, setTextMessage] = useState("");
   const { unreadMessage } = useSelector((store) => store.chat);
@@ -28,7 +27,7 @@ const Message = () => {
 
     try {
       const res = await axios.post(
-        `${backendUri}/api/v1/message/sendMessage/${selectedUser?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/message/sendMessage/${selectedUser?._id}`,
         { message: textMessage },
         {
           headers: {

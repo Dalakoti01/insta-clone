@@ -20,7 +20,6 @@ import FollowingDialog from "./FollowingDialoge";
 import FollowerDialoge from "./FollowerDialoge";
 
 const Profile = () => {
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const [openFollower ,setOpenFollower] = useState(false)
   const [open,setOpen] = useState(false)
@@ -42,7 +41,7 @@ const Profile = () => {
   const followOrUnfollowHandler = async () => {
     try {
       const res = await axios.get(
-        `${backendUri}/api/v1/user/followOrUnfollow/${getUser?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/user/followOrUnfollow/${getUser?._id}`,
         { withCredentials: true }
       );
 

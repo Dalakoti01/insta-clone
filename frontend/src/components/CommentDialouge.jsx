@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 
 const CommentDialouge = ({ open, setOpen }) => {
 
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
 
   const navigate = useNavigate()
@@ -40,7 +39,7 @@ const CommentDialouge = ({ open, setOpen }) => {
     
     try {
       const res = await axios.post(
-        `${backendUri}/api/v1/post/addComment/${selectedPost?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/post/addComment/${selectedPost?._id}`,
         { text },
         {
           headers: {

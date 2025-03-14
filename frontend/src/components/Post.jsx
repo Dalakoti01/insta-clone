@@ -21,7 +21,6 @@ import { useNavigate } from "react-router-dom";
 import { setUser } from "@/store/authSlice";
 
 const Post = ({ post }) => {
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.auth);
@@ -44,7 +43,7 @@ const Post = ({ post }) => {
     try {
 
       const res = await axios.delete(
-        `${backendUri}/api/v1/post/deletePost/${post?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/post/deletePost/${post?._id}`,
         { withCredentials: true }
       );
       console.log("step 2");
@@ -68,7 +67,7 @@ const Post = ({ post }) => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.post(
-        `${backendUri}/api/v1/post/${action}/${post._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/post/${action}/${post._id}`,
         {},
         { withCredentials: true }
       );
@@ -99,7 +98,7 @@ const Post = ({ post }) => {
   const addComment = async () => {
     try {
       const res = await axios.post(
-        `${backendUri}/api/v1/post/addComment/${post?.author?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/post/addComment/${post?.author?._id}`,
         { text },
         {
           headers: {
@@ -129,7 +128,7 @@ const Post = ({ post }) => {
       console.log("Started bookmark");
 
       const res = await axios.get(
-        `${backendUri}/api/v1/post/bookmarkPost/${post?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/post/bookmarkPost/${post?._id}`,
         { withCredentials: true }
       );
 

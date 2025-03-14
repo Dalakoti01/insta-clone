@@ -13,7 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "@/store/postSlice";
 
 const CreatePostDialoge = ({ open, setOpen }) => {
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const {posts} = useSelector(store => store.post)
   const dispatch = useDispatch()
@@ -41,7 +40,7 @@ const CreatePostDialoge = ({ open, setOpen }) => {
     formData.append("profilePhoto",image)
     try {
       setLoading(true)
-      const res = await axios.post(`${backendUri}/api/v1/post/createPost`,formData,{
+      const res = await axios.post(`https://insta-clone-sp4v.onrender.com/api/v1/post/createPost`,formData,{
         headers : {
           "Content-Type" : "multipart/form-data"
         },

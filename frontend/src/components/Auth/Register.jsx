@@ -18,7 +18,6 @@ const Register = () => {
         navigate("/")
       }
     },[])
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const [input, setInput] = useState({
     username: "",
@@ -37,7 +36,7 @@ const Register = () => {
     try {
       setLoading(true)
       const res = await axios.post(
-        `${backendUri}/api/v1/user/register`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/user/register`,
         input, 
         {
           withCredentials: true,

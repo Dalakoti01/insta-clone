@@ -8,7 +8,6 @@ import { toast } from "sonner";
 import useGetUserProfile from "@/hooks/useGetUserProfile";
 
 const RightSidebar = () => {
-  const backendUri = import.meta.env.VITE_BACKEND_URL;
 
   const { user, suggestedUser, selectedUser } = useSelector(
     (store) => store.auth
@@ -21,7 +20,7 @@ const RightSidebar = () => {
   const followOrUnfollow = async () => {
     try {
       const res = await axios.get(
-        `${backendUri}/api/v1/user/followOrUnfollow/${selectedUser?._id}`,
+        `https://insta-clone-sp4v.onrender.com/api/v1/user/followOrUnfollow/${selectedUser?._id}`,
         { withCredentials: true }
       );
       if (res.data.success) {

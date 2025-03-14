@@ -4,14 +4,13 @@ import { useEffect, useCallback } from "react"
 import { useDispatch } from "react-redux"
 
 const useGetUserProfile = (userId) => {
-    const backendUri = import.meta.env.VITE_BACKEND_URL;
 
     const dispatch = useDispatch();
 
     const fetchAllUserProfile = useCallback(async () => {
         if (!userId || userId === "null") return;  // ✅ Prevent API call for invalid IDs
         try {
-            const res = await axios.get(`${backendUri}/api/v1/user/${userId}/profile`, { withCredentials: true });
+            const res = await axios.get(`https://insta-clone-sp4v.onrender.com/api/v1/user/${userId}/profile`, { withCredentials: true });
             if (res.data.success) {
                 dispatch(setGetUser(res.data.user));
             }
